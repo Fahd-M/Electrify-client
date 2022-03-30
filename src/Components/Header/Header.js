@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Logo from '../../assets/logos/logo-img.jpg';
 import './Header.scss';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -7,35 +7,38 @@ import { Link, NavLink } from 'react-router-dom';
 const Header = () => {
     return (
       <section className="header">
-        <div className="header__banner"></div>
-        <div className="header__bottom">
-          <Link className="header__logo" to="/">Electrify</Link>
-          <nav className="header__nav">
-            <NavLink
-              className="header__nav-link"
-              activeClassName="header__nav-link--active"
-              to="/"
-              exact
-            >
-              Home
-            </NavLink>
-            <NavLink
-              className="header__nav-link"
-              activeClassName="header__nav-link--active"
-              to="/about"
-              exact
-            >
-              About
-            </NavLink>
-            <NavLink
-              className="header__nav-link"
-              activeClassName="header__nav-link--active"
-              to="/Login"
-              exact
-            >
-              Login
-            </NavLink>
+        <div className="header__content">
+          <Link className="header__logo" to="/">
+            <img src={Logo} alt="site logo" className="header__logoImg" />
+            Electrify
+          </Link>
+
+          <nav className="nav">
+            <div className="nav__list">
+              <NavLink 
+                to="/"
+                className="nav__link"
+                activeClassName="nav__link--highlight"
+              >
+                Home 
+              </NavLink>
+              <NavLink 
+                to="/about"
+                className="nav__link"
+                activeClassName="nav__link--highlight"
+              >
+                About 
+              </NavLink>
+              <NavLink 
+                to="/login"
+                className="nav__link"
+                activeClassName="nav__link--highlight"
+              >
+                Login 
+              </NavLink>
+            </div>
           </nav>
+          
         </div>
       </section>
     );

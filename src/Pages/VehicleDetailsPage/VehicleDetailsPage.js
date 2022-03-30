@@ -1,6 +1,6 @@
 import React from 'react';
-import './VehicleDetails';
-export default function VehicleDetails() {
+import './VehicleDetailsPage';
+export default function VehicleDetailsPage() {
   return (
     <div>VehicleDetails</div>
   )

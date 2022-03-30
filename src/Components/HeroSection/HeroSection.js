@@ -1,5 +1,6 @@
 import React from 'react';
 import './HeroSection.scss';
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
@@ -7,12 +8,9 @@ export default function HeroSection() {
       <div className="hero__container">
         <div className="hero__content">
           <div className="hero__content--info">
-            <p>Hero image stretches the content div </p>
-            <h1 className="hero__title">Hero Slogan</h1>
-            <button className="hero__button"> Click to Log in! </button>
-          </div>
-          <div className="hero__content--banner">
-            <p> change to img tag or use background img on banner + use banner wrapper </p>
+            <h1 className="hero__title">Electric Future</h1>
+            <p className="hero__slogan">Make an informed purchase on your next vehicle!</p>
+            <Link className="hero__button" to="/login"> Log in </Link>
           </div>
         </div>
       </div>

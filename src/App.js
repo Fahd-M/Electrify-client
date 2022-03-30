@@ -1,9 +1,9 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './Components/Footer';
-import VehiclesPage from './Pages/VehiclesPage';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
+import VehiclesPage from './Pages/VehiclesPage/VehiclesPage';
 import VehicleDetailsPage from './Pages/VehicleDetailsPage/VehicleDetailsPage';
-import AboutPage from './Pages/AboutPage'
+import AboutPage from './Pages/AboutPage/AboutPage'
 import './styles/App.scss';
 import HeroSection from './Components/HeroSection/HeroSection';
 
@@ -14,13 +14,13 @@ function App() {
         <Header/>
         <HeroSection />
           <article className="page-container">
-            <div className="page-container__inner">
+            {/* <div className="page-container__inner"> */}
               <Switch>
                 <Redirect path="/" to="/vehicles" exact />
                 <Route path="/vehicles" exact component={VehiclesPage}/>
                 <Route path="/vehicles/:id" component={VehicleDetailsPage} />
-                <Route path="/vehicles/edit/:id" exact component={EditVehicle} />
-                <Route path="/vehicles/add" exact component={AddVehicle} />
+                {/* <Route path="/vehicles/edit/:id" exact component={EditVehicle} />
+                <Route path="/vehicles/add" exact component={AddVehicle} /> */}
                 <Route path="/about" component={AboutPage} />
                 
                 {/* <Route path="/vehicleDetails" exact component={VehicleDetails} />
@@ -29,7 +29,7 @@ function App() {
                 <Route path="/inventory/edit/:id" component={EditInven} /> */}
                 
               </Switch>
-            </div>
+            {/* </div> */}
             <Footer />
           </article> 
       </div>      

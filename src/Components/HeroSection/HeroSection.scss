@@ -1,0 +1,41 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.hero {
+    &__container {
+        background-image: URL(../../assets/logos/Electric-Cars-hero.jpg);
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-position:center;
+        position:relative; 
+        aspect-ratio: 16/9;
+    }
+
+    &__content {
+        width:70%;
+        &--info { 
+            @include flexed(column,center, flex-start);
+            gap:1rem;
+            padding-left:1rem;
+            
+        }
+    }
+
+    &__title {
+        color:white;
+    }
+
+    &__slogan {
+        color:white;
+        font-weight: 600;
+        width:70%;
+    }
+
+    &__button { 
+        border-radius:20px;
+        text-decoration: none;
+        color:red;
+        background-color: white;
+        padding:0.25rem;
+    }
+}

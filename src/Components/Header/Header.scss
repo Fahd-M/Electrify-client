@@ -1,48 +1,67 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
 .header {
-    &__banner {
-      width: 100%;
-      height: 5rem;
-    //   background-image: linear-gradient(
-    //     45deg,
-    //     hsl(240deg 100% 20%) 0%,
-    //     hsl(293deg 82% 19%) 20%,
-    //     hsl(329deg 60% 30%) 29%,
-    //     hsl(355deg 50% 42%) 36%,
-    //     hsl(13deg 63% 48%) 43%,
-    //     hsl(26deg 100% 46%) 50%,
-    //     hsl(32deg 100% 47%) 57%,
-    //     hsl(38deg 100% 48%) 64%,
-    //     hsl(44deg 100% 49%) 71%,
-    //     hsl(49deg 100% 50%) 80%,
-    //     hsl(55deg 100% 50%) 100%
-    //   );
-    }
-    &__bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+  background-color: white;
+  font-family:"Titillium Web";
+  width: 100%;
+
+    &__content {
+      
+      @include flexed(column, center, center);
+      width:100%;
       padding: 1rem 0;
       border-bottom: 2px solid #E49273;
     }
+
     &__logo {
       text-decoration: none;
+      align-self:top;
       &:link,
       &:visited {
         color: #2B4570;
-        font-size: 1.25rem;
+        font-size: 2rem;
         font-family: 'Courier New', Courier, monospace;
         letter-spacing: 3px;
       }
     }
-    &__nav {
-      display: flex;
-      gap: 1.5rem;
+    &__logoImg {
+      width:3.5rem;
+      height:2.5rem; 
     }
-    &__nav-link--active {
-      &:link,
+}
+
+
+.nav {
+  &__list {
+    list-style: none;
+    @include flexed(row, space-evenly, center);
+    width: 100%;
+  }
+      
+  &__link{
+    font-size: 1rem;
+    text-align: center;
+    padding: .25rem 0.5rem;
+    color: black;
+    font-weight: 600;
+    width: 100%;
+    &:hover {
+      // border-bottom: 1px solid $global-color;
+      text-decoration: underline;
+      text-underline-offset: 0.1rem;
+      text-decoration-thickness: 1px;
+    }
+
+
+    &--highlight {
+      background-color: darkgrey;
+      border-radius: 20px;
+      color: limegreen;
       &:visited {
-        color: #E49273;
-        text-decoration: none;
+      color: red;
+      text-decoration: none;
       }
     }
   }
+}
