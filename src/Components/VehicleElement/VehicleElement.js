@@ -19,14 +19,14 @@ function VehicleElement({
           className="vehicle-item__link"
           to={`/vehicles/${id}`}
         >
-          <img className="vehicle-item__img" src={image} alt="vehicle name" />
+          <img className="vehicle-item__img" src={`${process.env.REACT_APP_API_URL}${image}`} alt="vehicle name" />
           <h4 className="vehicle-item__make">{make}</h4>
           <p className="vehicle-item__feature"> Model: {model} </p>
           <p className="vehicle-item__feature"> Trim: {trim} </p>
           <p className="vehicle-item__feature"> Powertrain: {powertrain} </p>
         </Link>
       </div>
-      
+
       <div className="vehicle-item__actions">
           <button
             className="vehicle-item__delete-button"

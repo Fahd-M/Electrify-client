@@ -1,0 +1,39 @@
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.vehicleDealer {
+    width:100%;
+    @include flexed(column,center, center);
+    gap:1rem;
+
+    &__img {
+        width:100%;
+        border:1px solid red;
+        @include tablet {
+            width:60%;
+        }
+    }
+
+    &__textArea {
+        width: 100%;
+        border:1px solid green;
+        @include tablet {
+            width:40%;
+        }
+    }
+
+    &__list {
+        @include flexed(column,center, flex-start);
+
+    }
+}
+
+.vehicleDealerInfo {
+    width:100%;
+    @include flexed(column,center, center);
+    
+    @include tablet {
+        width:50%;
+    }
+}

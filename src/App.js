@@ -9,6 +9,8 @@ import HeroSection from './Components/HeroSection/HeroSection';
 import AddVehicle from './Components/AddVehicle/AddVehicle';
 import Login from './Components/Login/Login';
 import EditVehicle from './Components/EditVehicle/EditVehicle';
+// import LoginPage from './Pages/LoginPage/LoginPage';
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
                 <Route path="/vehicles/:id" component={VehicleDetailsPage} />
                 <Route path="/about" component={AboutPage} />
                 <Route path="/login" component={Login} />
+                {/* <Route path="/login" component={LoginPage} /> */}
                 
                 
                 

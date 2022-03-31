@@ -1,0 +1,31 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+
+.vehicle {
+    width:100%;
+    @include flexed(column,center,center);
+
+    &__info {
+        width:100%;
+        @include flexed(column,center,flex-start);
+        gap:1rem; 
+    }
+}
+
+.vehicleIntro {
+    @include flexed(column, center, center);
+    
+    &__feature {
+        border: 2px solid black;
+    }
+
+    // &__make {}
+    // &__model {}
+    // &__trim {}
+
+    &__price {
+        color:red;
+        font-weight:bold;
+    }
+}

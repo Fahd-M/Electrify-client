@@ -1,0 +1,39 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+
+.vehicleContent {
+    width:100%;
+    @include flexed(column,center,center);
+    @include tablet {
+        width:50%;
+    }
+
+    &__img {
+        border:1px solid red;
+        width:100%;
+    }
+
+    &__textArea {
+        @include flexed(column,center,center);
+        border:1px solid grey;
+        width:100%;
+    }
+
+    &__text {
+        @include flexed(column,center,center);
+        border:1px solid green;
+        width:100%;
+        @include tablet {
+            width:50%;
+        }
+    }
+
+    &__specsOne {
+        color:red;
+    }
+    &__specsTwo {
+        color:blue;
+    }
+
+}
