@@ -1,0 +1,27 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.edit {
+  @include flexed(column, center, center);
+
+  &__button {
+    border-style: none;
+    background-color: grey;
+    color: lime;
+    width: 60%;
+    height: 2.25rem;
+    border-radius: 1.25rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      background-color: blue;
+    }
+  }
+}

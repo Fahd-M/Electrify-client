@@ -1,0 +1,11 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+// .vehicles-wrapper {
+
+// }
+
+.vehicles-list {
+    @include flexed(column,center,center);
+    gap:1rem;
+}
