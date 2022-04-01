@@ -19,7 +19,7 @@ function App() {
         <Header/>
         <HeroSection />
           <article className="page-container">
-            {/* <div className="page-container__inner"> */}
+
               <Switch>
                 <Redirect path="/" to="/vehicles" exact />
                 <Route path="/vehicles" exact component={VehiclesPage}/>
@@ -33,13 +33,11 @@ function App() {
                 
                 
                 
-                {/* <Route path="/vehicleDetails" exact component={VehicleDetails} />
-                <Route path="/inventory/add" component={AddInven} />
-                <Route path="/inventory/:id" exact component={InventoryDetails} />
-                <Route path="/inventory/edit/:id" component={EditInven} /> */}
+                {/* <Route path="/vehicleDetails" exact component={VehicleDetails} /> */}
+
                 
               </Switch>
-            {/* </div> */}
+
             <Footer />
           </article> 
       </div>      

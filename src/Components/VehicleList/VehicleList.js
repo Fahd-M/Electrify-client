@@ -3,7 +3,7 @@ import './VehicleList.scss';
 
 import VehicleElement from '../../Components/VehicleElement/VehicleElement';
 
-function VehicleList({vehicles}) {
+function VehicleList({ vehicles, showDeleteModal }) {
   return (
     <div className="vehicles-wrapper">
       <ul className="vehicles-list">
@@ -17,6 +17,8 @@ function VehicleList({vehicles}) {
               trim={vehicle.trim}
               powertrain={vehicle.powertrain}
               image={vehicle.image}
+              showDeleteModal={showDeleteModal}
+              dealerId={vehicle.dealerId}
               />
           )
         })}

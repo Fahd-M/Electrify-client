@@ -14,6 +14,10 @@
         width:100%;
     }
 
+    &__imageDP {
+        width:100%;
+    }
+
     &__textArea {
         @include flexed(column,center,center);
         border:1px solid grey;
@@ -34,6 +38,9 @@
     }
     &__specsTwo {
         color:blue;
+    }
+    &__specsThree {
+        color:green;
     }
 
 }

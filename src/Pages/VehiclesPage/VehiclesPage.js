@@ -14,6 +14,31 @@ class VehiclesPage extends Component {
     toDelete:{}
   }
 
+  showDeleteModal = (make, model, trim, id) => {
+    this.setState({ show: true, toDelete: {make:make, model:model, trim:trim, id:id} });
+
+  };
+
+  hideDeleteModal = () => {
+      this.setState({ show:false, toDelete:{} });
+  };
+
+  deleteVehicle = () => {
+      let currentID = this.state.toDelete.id;
+      axios
+          .delete(`${process.env.REACT_APP_API_URL}/vehicles/${currentID}`)
+          .then((response) => {
+              this.setState({
+                  vehicles: response.data,
+                  toDelete:{},
+                  show:false
+              })
+          })
+          .catch((error) => {
+              console.log(error);
+          })
+  }  
+
   componentDidMount() {
     this.getAllVehicles();
   }
@@ -38,8 +63,18 @@ class VehiclesPage extends Component {
       <>
         <PageIntro />
         <AddVehicleButton />
-        <VehicleList vehicles={this.state.vehicles} /> 
-        {/* <DeleteVehicle /> */}
+        <VehicleList 
+          vehicles={this.state.vehicles}
+          showDeleteModal={this.showDeleteModal} 
+        /> 
+        <DeleteVehicle 
+          show={this.state.show}
+          hideDeleteModal={this.hideDeleteModal}
+          deleteVehicle={this.deleteVehicle}
+          vehicleName={this.state.toDelete.make}
+          vehicleModel={this.state.toDelete.model}
+          vehicleTrim={this.state.toDelete.trim}          
+        />
       </>
     );
   }

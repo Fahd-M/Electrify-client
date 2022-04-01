@@ -11,6 +11,7 @@ function VehicleElement({
   powertrain,
   id,
   image,
+  showDeleteModal,
 }) {
   return (
     <li className="vehicle-item">
@@ -31,9 +32,9 @@ function VehicleElement({
           <button
             className="vehicle-item__delete-button"
             type="button"
-            // onClick={() => {
-            //   showDeleteModal(name, id);
-            // }}
+            onClick={() => {
+              showDeleteModal(make, model, trim, id);
+            }}
           >
             <img
               className="vehicle-item__action-icon"
