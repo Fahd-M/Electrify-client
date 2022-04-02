@@ -1,0 +1,64 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+
+#add-vehicle {
+    @include tablet {
+      width: 138px;
+    }
+  }
+  
+  .details {
+    &__container {
+      padding: 1rem 1.5rem;
+      margin: 0;
+    }
+    &__subheader {
+      padding-bottom: 0.5;
+    }
+    &__input {
+      margin-bottom: 0;
+      outline: none;
+      &--error {
+        border: 1px solid purple;
+        &:focus {
+          border: 2px solid purple;
+        }
+      }
+    }
+    &__label {
+      padding-top: 1rem;
+    }
+    &__err {
+      display: none;
+      font-size: 0.75rem;
+      color: red;
+      &--img {
+        height: 13px;
+      }
+      &__input {
+          margin-bottom: 0;
+          outline: none;
+          &--error{
+              border: 1px solid purple;
+              &:focus{
+                  border: 2px solid purple;
+              }
+          }
+      }
+      &__label {
+          padding-top: 1rem;
+      }
+      &__err {
+          display: none;
+          font-size: .75rem;
+          color: red;
+          &--img {
+              height: 13px;
+          }
+      }
+  }
+  
+  }
+  
+  
