@@ -36,13 +36,6 @@ class AddVehicle extends Component {
     electricWarrantyComponents: "",
     electricWarrantyBattery:"",
 
-    // give area to update dealership details too?
-    // name:"",
-    // address:"",
-    // phone:"",
-    // email:"",
-
-
 
     makevalid: false,
     modelvalid: false,
@@ -66,11 +59,6 @@ class AddVehicle extends Component {
     seatsvalid: false,
     electricWarrantyComponentsvalid: false,
     electricWarrantyBatteryvalid: false,
-
-    // namevalid:false,
-    // addressvalid:false,
-    // phonevalid:false,
-    // emailvalid:false,
 
     formvalid: false
   };

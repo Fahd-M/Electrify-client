@@ -8,4 +8,9 @@
 .vehicles-list {
     @include flexed(column,center,center);
     gap:1rem;
+    @include tablet {
+        @include flexed(row, space-evenly, center);
+        flex-wrap:wrap;
+        gap:1.5rem;
+    }
 }

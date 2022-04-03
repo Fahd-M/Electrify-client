@@ -9,26 +9,43 @@
         background-position:center;
         position:relative; 
         aspect-ratio: 16/9;
+
+        
     }
 
     &__content {
-        width:70%;
+        width:80%;
         &--info { 
-            @include flexed(column,center, flex-start);
-            gap:1rem;
+            @include flexed(column,space-evenly, flex-start);
+            gap:1.75rem;
             padding-left:1rem;
-            
+            @include tablet{
+                padding-left:2rem;
+                gap:6rem;
+            }
         }
     }
 
     &__title {
-        color:white;
+        color:#ffd0d0;
+        font-size:1.5rem;
+        @include tablet {
+            font-size:4rem;
+            font-weight: 500;
+        }
     }
 
     &__slogan {
         color:white;
+        font-size:1rem;
         font-weight: 600;
         width:70%;
+        @include tablet {
+            font-size:1.75rem;
+            width:50%;
+            font-weight: 500;
+
+        }
     }
 
     &__button { 
@@ -37,5 +54,13 @@
         color:red;
         background-color: white;
         padding:0.25rem;
+        font-size:0.75rem;
+        @include tablet {
+            padding:0.75rem 2rem;
+            font-size:1.25rem;
+            font-weight: 600;
+
+
+        }
     }
 }

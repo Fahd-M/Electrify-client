@@ -7,7 +7,7 @@ function EditButton( { id }) {
     <div className='edit'>
         <Link 
             className='edit__button'
-            to="/vehicles/edit/:id"
+            to={`/vehicles/edit/${id}`}
         >
             Edit Vehicle
         </Link>

@@ -19,7 +19,9 @@
     align-items: center;
     justify-content: center;
     padding: 0.5rem 1rem;
-
+    @include tablet {
+      width:20%;
+    }
     &:hover {
       background-color: blue;
     }

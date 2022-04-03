@@ -4,15 +4,26 @@
 
 .pageContent {
 
-    // &__intro {
+    &__intro {
+        @include flexed(column,center, flex-start);
+        gap:0.5rem;
+        @include tablet {
+            gap:1rem;
+            padding-top:1rem;
+            @include flexed(column,center,center);
 
-    // }
+        }
+    }
 
-    // &__title {
-
-    // }
+    &__title {
+        font-size:1.75rem;
+        font-weight: 600;
+        align-self:center;
+    }
 
     &__text {
+        font-size:1rem;
+        font-weight:500;
 
         &--link {
             color:red;
