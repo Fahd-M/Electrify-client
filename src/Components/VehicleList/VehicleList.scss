@@ -13,4 +13,8 @@
         flex-wrap:wrap;
         gap:1.5rem;
     }
+    @include desktop {
+        @include flexed(row, center, center);
+        gap:1.5rem;
+    }
 }

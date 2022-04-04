@@ -9,7 +9,7 @@
         background-position:center;
         position:relative; 
         aspect-ratio: 16/9;
-
+        // @include desktop {}
         
     }
 
@@ -22,6 +22,11 @@
             @include tablet{
                 padding-left:2rem;
                 gap:6rem;
+            }
+            @include desktop{
+                gap:10rem;
+                padding-left:3rem;
+                padding-top:1rem;
             }
         }
     }

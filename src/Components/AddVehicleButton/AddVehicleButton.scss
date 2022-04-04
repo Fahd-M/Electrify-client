@@ -22,6 +22,9 @@
     @include tablet {
       width:20%;
     }
+    @include desktop{
+      font-size:1.5rem;
+    }
     &:hover {
       background-color: blue;
     }

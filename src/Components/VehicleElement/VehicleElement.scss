@@ -8,6 +8,9 @@
     @include tablet {
         width:44%;
     }
+    @include desktop { 
+        width:30%;
+    }
 
     &__details {
         width: 100%;

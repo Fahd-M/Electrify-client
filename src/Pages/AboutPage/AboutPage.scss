@@ -1,0 +1,55 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.about {
+    width:100%;
+    
+    &__electric {
+        @include flexed(column,center,flex-start);
+
+    }
+    &__title {
+        font-size:1.5rem;
+        @include tablet{
+            font-size:2rem;
+        }
+    }
+
+    &__creator {
+        border-top:#5fc52c solid 1px;
+        
+    }
+    &__siteUse {
+        border-top:#5fc52c solid 1px;
+    }
+}
+
+.about-wrapper {
+    @include flexed(column,center, flex-start);
+    gap:2rem;
+}
+
+ .electric {
+
+//     &__intro {}
+    &__heading{
+        //border-top:#5fc52c solid 1px;
+        margin-top:1rem;
+    }
+     &__types{
+         &--label {
+            color: #5fc52c;
+         }
+     }
+}
+
+.benefitsList {
+    list-style-type: disc;
+    padding-left:2.5rem;
+}
+
+.explainer {
+    margin-bottom:0.5rem;
+}
+
+// .intro-future{}

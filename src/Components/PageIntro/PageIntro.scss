@@ -19,11 +19,17 @@
         font-size:1.75rem;
         font-weight: 600;
         align-self:center;
+        @include desktop{
+            font-size: 4rem;
+        }
     }
 
     &__text {
         font-size:1rem;
         font-weight:500;
+        @include desktop {
+            font-size:1.5rem;
+        }
 
         &--link {
             color:red;
