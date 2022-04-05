@@ -10,7 +10,7 @@
     }
 
     &__img {
-        border:1px solid red;
+        //border:1px solid red;
         width:100%;
     }
 
@@ -20,27 +20,90 @@
 
     &__textArea {
         @include flexed(column,center,center);
-        border:1px solid grey;
+        //border:1px solid grey;
         width:100%;
     }
 
     &__text {
         @include flexed(column,center,center);
-        border:1px solid green;
+        //border:1px solid green;
         width:100%;
+        padding-left:0.5rem;
+        padding-right:0.25rem;
+        padding-bottom:0.5rem;
         @include tablet {
             width:50%;
         }
     }
 
+    &__list {
+        &--engine {
+            font-weight:600;
+            font-size:1.5rem;
+            border: 1px solid black;
+            padding-left:0.5rem;
+            padding-right:0.25rem;
+            padding-bottom:0.5rem;
+        }
+
+        &--battery {
+            border:1px solid black;
+            font-size:1.5rem;
+            align-self:flex-start;
+            padding-left:0.5rem;
+            padding-right:0.25rem;
+            padding-bottom:0.5rem;
+        }
+
+        &--chargeTime {
+            font-size:1.5rem;
+            align-self:flex-start;
+            //padding-left:0.5rem;
+            padding-right:0.25rem;
+            padding-bottom:0.5rem;
+        }
+    }
+
+    &__listItem {
+        font-size:0.75rem;
+        padding-left:0.5rem;
+        @include flexed(row,space-between,center);
+        width:100%;
+    }
+
+
     &__specsOne {
         color:red;
+        &--text { 
+            font-size:1rem;
+            font-weight:600;
+            align-self:flex-start;
+            @include flexed(row, space-between, center);
+            width:100%;
+        }
     }
     &__specsTwo {
         color:blue;
+        &--text {
+            border:1px solid black;
+            padding:0.25rem;
+            font-size:1rem;
+            font-weight:600;
+            align-self:flex-start;
+            @include flexed(row, space-between, center);
+            width:100%;
+        }
     }
     &__specsThree {
         color:green;
     }
 
+}
+
+.specsLabel {
+    text-decoration: underline;
+    font-weight:600;
+    font-size:1rem;
+    text-decoration-color:red;
+    margin-right:1rem;
 }

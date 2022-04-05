@@ -5,7 +5,9 @@
 .vehicle {
     width:100%;
     @include flexed(column,center,center);
-
+    font-size:1.5rem;
+    text-decoration: underline;
+    text-decoration-color: #5fc52c;
     &__info {
         width:100%;
         @include flexed(column,center,flex-start);
@@ -14,13 +16,20 @@
 }
 
 .vehicleIntro {
+    //font-size:2rem;
     @include flexed(column, center, center);
     
     &__feature {
-        border: 2px solid black;
+        font-size:1rem;
+        //border: 2px solid black;
     }
 
-    // &__make {}
+    &__make {
+        color: #5fc52c;
+        font-weight: 600;
+        font-size:1.25rem;
+        margin-bottom:1rem;
+    }
     // &__model {}
     // &__trim {}
 

@@ -5,37 +5,41 @@ import error from "../../assets/icons/error-24px.svg";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
 import { Component } from "react";
+import FormData from 'form-data';
 
 class AddVehicle extends Component {
   state = {
-    dealerships:[],//create empty dealership array 
+    dealerships: [],
+    //create empty dealership array for list drop down
+
+    //initially no file selected
+    file: null,
 
     id: "",
-    dealerId: "",
+    //dealerId: "",
     make: "",
     model: "",
     trim: "",
     basePrice: "",
     powertrain: "",
-    
-    engineSpec1:"",
-    engineSpec2:"",
-    engineSpec3:"",
+
+    engineSpec1: "",
+    engineSpec2: "",
+    engineSpec3: "",
     drivetrain: "",
     horsepower: "",
-    batteryType:"",
-    batteryCapacity:"",
+    batteryType: "",
+    batteryCapacity: "",
     chargeTimeMech: "",
-    chargeTimeL1:"",
-    chargeTimeL2:"",
-    chargeTimeL3:"",
+    chargeTimeL1: "",
+    chargeTimeL2: "",
+    chargeTimeL3: "",
     range: "",
     efficiency: "",
     airbags: "",
     seats: "",
     electricWarrantyComponents: "",
-    electricWarrantyBattery:"",
-
+    electricWarrantyBattery: "",
 
     makevalid: false,
     modelvalid: false,
@@ -60,7 +64,7 @@ class AddVehicle extends Component {
     electricWarrantyComponentsvalid: false,
     electricWarrantyBatteryvalid: false,
 
-    formvalid: false
+    formvalid: false,
   };
 
   componentDidMount() {
@@ -80,45 +84,25 @@ class AddVehicle extends Component {
         console.log(error);
       });
   }
-  
 
-// this tracks each field and adds to the state.
-// Once the state is changed it checks if the input is valid
-handleChange = (event) => {
-  this.setState(
-    {
-      [event.target.name]: event.target.value,
-    },
-    () => {
-      this.validateField(event.target, event.target.value);
-    }
-  );
-};
+  // this tracks each field and adds to the state.
+  // Once the state is changed it checks if the input is valid
+  handleChange = (event) => {
+    this.setState(
+      {
+        [event.target.name]: event.target.value,
+      },
+      () => {
+        this.validateField(event.target, event.target.value);
+      }
+    );
+  };
 
-
-//*** THIS IS TO VALIDATE THE DROP DOWN AND TO VALIDATE THAT
-//*** */ ALL FIELDS FILLED OUT
-//Validation
-// if (
-//   e.target.dealership.value === "Select" 
-// ) {
-//   this.setState({err:true});
-//   if (e.target.warehouse.value === "Select") {
-//     warehouseField.classList.add("details__input--error");
-//     warehouseField.nextSibling.style.display = "block";
-//   }
-// }
-// else {
-  
-// }
-
-
-
-//takes in field that has been changed and its values and checks 
-// if the value is valid according to the required format. 
-// Then it changes the state of of field validity accordingly. 
-// Once the field valididy status is updated it calls to confirm 
-// if the form is valid.
+  //takes in field that has been changed and its values and checks
+  // if the value is valid according to the required format.
+  // Then it changes the state of of field validity accordingly.
+  // Once the field valididy status is updated it calls to confirm
+  // if the form is valid.
 
   validateField(field, value) {
     let makevalidation = this.state.makevalid;
@@ -142,9 +126,10 @@ handleChange = (event) => {
     let efficiencyvalidation = this.state.efficiencyvalid;
     let airbagsvalidation = this.state.airbagsvalid;
     let seatsvalidation = this.state.seatsvalid;
-    let electricWarrantyComponentsvalidation = this.state.electricWarrantyComponentsvalid;
-    let electricWarrantyBatteryvalidation = this.state.electricWarrantyBatteryvalid;
-
+    let electricWarrantyComponentsvalidation =
+      this.state.electricWarrantyComponentsvalid;
+    let electricWarrantyBatteryvalidation =
+      this.state.electricWarrantyBatteryvalid;
 
     // let namevalidation = this.state.namevalid;
     // let addressvalidation = this.state.addressvalid;
@@ -152,7 +137,8 @@ handleChange = (event) => {
     // let emailvalidation = this.state.emailvalid;
 
     const re = /^[a-zA-Z0-9]/;
-    const emailRe = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const emailRe =
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const addRe = /[A-za-z0–9_]/;
     const phoneRe = /^[0-9]{10}$/;
 
@@ -196,7 +182,7 @@ handleChange = (event) => {
       case "horsepower":
         horsepowervalidation = re.test(value);
         this.showInputError(field, horsepowervalidation);
-        break;      
+        break;
       case "batteryType":
         batteryTypevalidation = re.test(value);
         this.showInputError(field, batteryTypevalidation);
@@ -236,7 +222,7 @@ handleChange = (event) => {
       case "seats":
         seatsvalidation = re.test(value);
         this.showInputError(field, seatsvalidation);
-        break;  
+        break;
       case "electricWarrantyComponents":
         electricWarrantyComponentsvalidation = re.test(value);
         this.showInputError(field, electricWarrantyComponentsvalidation);
@@ -267,109 +253,106 @@ handleChange = (event) => {
       default:
         break;
     }
-    this.setState({
-      makevalid: makevalidation,
-      modelvalid: modelvalidation,
-      trimvalid: trimvalidation,
-      basePricevalid: basePricevalidation,
-      powertrainvalid: powertrainvalidation,
+    this.setState(
+      {
+        makevalid: makevalidation,
+        modelvalid: modelvalidation,
+        trimvalid: trimvalidation,
+        basePricevalid: basePricevalidation,
+        powertrainvalid: powertrainvalidation,
 
-      engineSpec1valid: engineSpec1validation,
-      engineSpec2valid: engineSpec2validation,
-      engineSpec3valid: engineSpec3validation,
-      drivetrainvalid: drivetrainvalidation,
-      horsepowervalid: horsepowervalidation,
+        engineSpec1valid: engineSpec1validation,
+        engineSpec2valid: engineSpec2validation,
+        engineSpec3valid: engineSpec3validation,
+        drivetrainvalid: drivetrainvalidation,
+        horsepowervalid: horsepowervalidation,
 
-      batteryTypevalid: batteryTypevalidation,
-      batteryCapacityvalid: batteryCapacityvalidation,
-      chargeTimeMechvalid: chargeTimeMechvalidation,
-      chargeTimeL1valid: chargeTimeL1validation,
-      chargeTimeL2valid: chargeTimeL2validation,
+        batteryTypevalid: batteryTypevalidation,
+        batteryCapacityvalid: batteryCapacityvalidation,
+        chargeTimeMechvalid: chargeTimeMechvalidation,
+        chargeTimeL1valid: chargeTimeL1validation,
+        chargeTimeL2valid: chargeTimeL2validation,
 
-      chargeTimeL3valid: chargeTimeL3validation,
-      rangevalid: rangevalidation,
-      efficiencyvalid: efficiencyvalidation,
-      airbagsvalid: airbagsvalidation,
-      seatsvalid: seatsvalidation,
-      electricWarrantyComponentsvalid: electricWarrantyComponentsvalidation,
-      electricWarrantyBatteryvalid: electricWarrantyBatteryvalidation,      
-      // namevalid: namevalidation,
-      // addressvalid: addressvalidation,
-      // phonevalid: phonevalidation,
-      // emailvalid: emailvalidation,
-
-    }, this.validateForm);
+        chargeTimeL3valid: chargeTimeL3validation,
+        rangevalid: rangevalidation,
+        efficiencyvalid: efficiencyvalidation,
+        airbagsvalid: airbagsvalidation,
+        seatsvalid: seatsvalidation,
+        electricWarrantyComponentsvalid: electricWarrantyComponentsvalidation,
+        electricWarrantyBatteryvalid: electricWarrantyBatteryvalidation,
+        // namevalid: namevalidation,
+        // addressvalid: addressvalidation,
+        // phonevalid: phonevalidation,
+        // emailvalid: emailvalidation,
+      },
+      this.validateForm
+    );
   }
 
-    //checks if the form is valid after every changed in the field and updates the status
+  //checks if the form is valid after every changed in the field and updates the status
   validateForm() {
     this.setState({
-      formvalid: this.state.makevalid &&
-      this.state.modelvalid &&
-      this.state.trimvalid &&
-      this.state.basePricevalid &&
-      this.state.powertrainvalid &&
+      formvalid:
+        this.state.makevalid &&
+        this.state.modelvalid &&
+        this.state.trimvalid &&
+        this.state.basePricevalid &&
+        this.state.powertrainvalid &&
+        this.state.engineSpec1valid &&
+        this.state.engineSpec2valid &&
+        this.state.engineSpec3valid &&
+        this.state.drivetrainvalid &&
+        this.state.horsepowervalid &&
+        this.state.batteryTypevalid &&
+        this.state.batteryCapacityvalid &&
+        this.state.chargeTimeMechvalid &&
+        this.state.chargeTimeL1valid &&
+        this.state.chargeTimeL2valid &&
+        this.state.basePricevalid &&
+        this.state.chargeTimeL3valid &&
+        this.state.rangevalid &&
+        this.state.efficiencyvalid &&
+        this.state.airbagsvalid &&
+        this.state.seatsvalid &&
+        this.state.electricWarrantyComponentsvalid &&
+        this.state.electricWarrantyBatteryvalid,
 
-      this.state.engineSpec1valid &&
-      this.state.engineSpec2valid &&
-      this.state.engineSpec3valid &&
-      this.state.drivetrainvalid &&
-
-      this.state.horsepowervalid &&
-      this.state.batteryTypevalid &&
-      this.state.batteryCapacityvalid &&
-      this.state.chargeTimeMechvalid &&
-
-      this.state.chargeTimeL1valid &&
-      this.state.chargeTimeL2valid &&
-      this.state.basePricevalid &&
-      this.state.chargeTimeL3valid &&
-      
-      this.state.rangevalid &&
-      this.state.efficiencyvalid &&
-      this.state.airbagsvalid &&
-
-      this.state.seatsvalid &&
-      this.state.electricWarrantyComponentsvalid &&
-      this.state.electricWarrantyBatteryvalid 
-      // this.state.namevalid &&
-      // this.state.positionvalid &&
-      // this.state.phonevalid &&
-      // this.state.emailvalid
-    })
+    });
   }
 
   //checks if the fieldValid state is true
-  isTrue(fieldValid){
-    return fieldValid === true
+  isTrue(fieldValid) {
+    return fieldValid === true;
   }
   //takes in field and validity of the field to render error
   showInputError(field, status) {
     if (!status) {
       field.classList.add("details__input--error");
       field.nextSibling.style.display = "block";
-
     } else {
       field.classList.remove("details__input--error");
       field.nextSibling.style.display = "none";
     }
   }
 
-    //form submission event handler
+  //form submission event handler
   handleSubmit = (e) => {
     console.log("clicked!");
     e.preventDefault();
+    console.log(e.target.dealership.value);
+    // this.uploadHandler();
     this.setState({
-      submit:true
-    })
-    //if form is valid it will take form field information and send post axios request 
+      submit: true,
+    });
+    //if form is valid it will take form field information and send post axios request
     if (this.state.formvalid) {
       const newVehicle = {
+        dealerId:e.target.dealership.value,
         make: this.state.make,
         model: this.state.model,
         trim: this.state.trim,
         basePrice: this.state.basePrice,
-        powertrain:this.state.powertrain,
+        powertrain: this.state.powertrain,
         engineSpec1: this.state.engineSpec1,
         engineSpec2: this.state.engineSpec2,
         engineSpec3: this.state.engineSpec3,
@@ -387,34 +370,97 @@ handleChange = (event) => {
         airbags: this.state.airbags,
         seats: this.state.seats,
         electricWarrantyComponents: this.state.electricWarrantyComponents,
-        electricWarrantyBattery: this.state.electricWarrantyBattery
-        // name: this.state.name,: 
-        // address: this.state.address,
-        // phone: this.state.phone,
-        // email: this.state.email,
+        electricWarrantyBattery: this.state.electricWarrantyBattery,
+
       };
+      //create an object of formdata
+      const data = new FormData();
+
+      //update the formdata object
+      data.append("file", this.state.file, this.state.file.name);
+      data.append("NewVehicle", JSON.stringify(newVehicle));
+      console.dir(data);
+
+      //details of the uploaded file
+      console.log(this.state.file);
+
       const addVehicle = axios.post(
         `${process.env.REACT_APP_API_URL}/vehicles`,
-        newVehicle
+        data
       );
       addVehicle
         .then((res) => {
-          window.alert(res.data);
-          this.props.history.push("/vehicles")
+          console.log(data);
+          window.alert("Vehicle added!");
+          this.props.history.push("/vehicles");
+
+          console.log(res);
         })
         .catch((err) => {
-          window.alert(err);
+          console.log(err);
         });
-    //it will check every field and validate it
+      // const addVehicle = axios.post(
+      //   `${process.env.REACT_APP_API_URL}/vehicles`,
+      //   newVehicle
+      // );
+      // addVehicle
+      //   .then((res) => {
+      //     window.alert(res.data);
+      //     this.props.history.push("/vehicles")
+      //   })
+      //   .catch((err) => {
+      //     window.alert(err);
+      //   });
+      //it will check every field and validate it
     } else {
-      const inputlist = e.target.querySelectorAll("input")
+      const inputlist = e.target.querySelectorAll("input");
       inputlist.forEach((field) => {
         this.validateField(field, field.value);
-      })
+      });
     }
   };
 
-  
+  handleFileChange = (event) => {
+    // update the state
+    //console.log(event.target.files);
+    this.setState(
+      {
+        file: event.target.files[0],
+      },
+      () => {
+        //console.log(this.state.file);
+      }
+    );
+  };
+
+  // uploadHandler =  () =>  {
+  //   //create an object of formdata
+  //   let data = new FormData();
+
+  //   //update the formdata object
+  //   data.append('file', this.state.file, this.state.file.name);
+  //   data.append('uploadedFile', 'someString');
+  //   console.dir(data);
+
+  //   //details of the uploaded file
+  //    console.log(this.state.file);
+
+  //   axios.post('http://localhost:8089/vehicles', data, {
+  //     headers: {
+  //       'accept': 'application/json',
+  //       'Accept-Language': 'en-US,en;q=0.8',
+  //       'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+  //     }})
+  //     .then((res) => {
+  //       console.log(data);
+
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
+
   render() {
     return (
       <div className="box-shadow">
@@ -432,7 +478,6 @@ handleChange = (event) => {
           <div className="details__container">
             <h3 className="details__subheader">Vehicle Details</h3>
             <div className="details__form">
-
               <label htmlFor="make" className="details__label">
                 Vehicle Make
               </label>
@@ -561,7 +606,6 @@ handleChange = (event) => {
                 This field is required
               </p>
 
-
               <label htmlFor="drivetrain" className="details__label">
                 Drivetrain
               </label>
@@ -608,7 +652,7 @@ handleChange = (event) => {
               <p className="details__err">
                 <img className="details__err--img" src={error} alt="error" />{" "}
                 This field is required
-              </p>              
+              </p>
 
               <label htmlFor="batteryCapacity" className="details__label">
                 Battery Capacity
@@ -624,8 +668,7 @@ handleChange = (event) => {
               <p className="details__err">
                 <img className="details__err--img" src={error} alt="error" />{" "}
                 This field is required
-              </p>                  
-
+              </p>
 
               <label htmlFor="chargeTimeMech" className="details__label">
                 Mechanism to charge battery
@@ -641,8 +684,7 @@ handleChange = (event) => {
               <p className="details__err">
                 <img className="details__err--img" src={error} alt="error" />{" "}
                 This field is required
-              </p>         
-
+              </p>
 
               <label htmlFor="chargeTimeL1" className="details__label">
                 Charge Time at Level 1 120V
@@ -676,7 +718,6 @@ handleChange = (event) => {
                 This field is required
               </p>
 
-
               <label htmlFor="chargeTimeL3" className="details__label">
                 Charge Time at Level 3 400-Volt to 900-Volt
               </label>
@@ -709,8 +750,6 @@ handleChange = (event) => {
                 This field is required
               </p>
 
-
-
               <label htmlFor="efficiency" className="details__label">
                 Driving Efficiency
               </label>
@@ -726,7 +765,6 @@ handleChange = (event) => {
                 <img className="details__err--img" src={error} alt="error" />{" "}
                 This field is required
               </p>
-
 
               <label htmlFor="airbags" className="details__label">
                 Number of Airbags
@@ -744,8 +782,6 @@ handleChange = (event) => {
                 This field is required
               </p>
 
-
-
               <label htmlFor="seats" className="details__label">
                 Number of Seats
               </label>
@@ -762,9 +798,10 @@ handleChange = (event) => {
                 This field is required
               </p>
 
-
-
-              <label htmlFor="electricWarrantyComponents" className="details__label">
+              <label
+                htmlFor="electricWarrantyComponents"
+                className="details__label"
+              >
                 Electric Component Warranty
               </label>
               <input
@@ -780,8 +817,10 @@ handleChange = (event) => {
                 This field is required
               </p>
 
-
-              <label htmlFor="electricWarrantyBattery" className="details__label">
+              <label
+                htmlFor="electricWarrantyBattery"
+                className="details__label"
+              >
                 Electric Battery Warranty
               </label>
               <input
@@ -797,6 +836,20 @@ handleChange = (event) => {
                 This field is required
               </p>
 
+              <label htmlFor="imageUpload" className="details__label">
+                Upload image
+              </label>
+              <input
+                type="file"
+                className="details__input"
+                placeholder="Upload image"
+                accept=".jpg"
+                id="imageUpload"
+                name="file"
+                onChange={this.handleFileChange}
+                //onClick={uploadHandler}
+              />
+
               <label htmlFor="dealership" className="details__label">
                 Dealership
               </label>
@@ -808,89 +861,18 @@ handleChange = (event) => {
                 >
                   <option value="Select">Select</option>
                   {this.state.dealerships.map((dealership) => (
-                    <option key={dealership.id} value={dealership.make}>{dealership.make}</option>
+                    <option key={dealership.id} value={dealership.id}>
+                      {dealership.make}
+                    </option>
                   ))}
-                  
                 </select>
                 <p className="details__err">
                   <img className="details__err--img" src={error} alt="error" />{" "}
                   This field is required
                 </p>
               </div>
-
-
             </div>
           </div>
-{/* 
-          <div className="details__container">
-            <h3 className="details__subheader">Dealership Details</h3>
-            <div className="details__form">
-              <label htmlFor="name" className="details__label">
-                Dealership Name
-              </label>
-              <input
-                type="text"
-                className="details__input"
-                placeholder="Name"
-                id="name"
-                name="name"
-                onChange={this.handleChange}
-              />
-              <p className="details__err">
-                <img className="details__err--img" src={error} alt="error" />{" "}
-                This field is required
-              </p>
-
-              <label htmlFor="address" className="details__label">
-                Address
-              </label>
-              <input
-                type="text"
-                className="details__input"
-                placeholder="Address"
-                id="address"
-                name="address"
-                onChange={this.handleChange}
-              />
-              <p className="details__err">
-                <img className="details__err--img" src={error} alt="error" />{" "}
-                This field is required
-              </p>
-              
-              <label htmlFor="phone" className="details__label">
-                Phone Number
-              </label>
-              <input
-                type="text"
-                className="details__input"
-                placeholder="Phone Number"
-                id="phone"
-                name="phone"
-                onChange={this.handleChange}
-              />
-              <p className="details__err">
-                <img className="details__err--img" src={error} alt="error" />{" "}
-                This field is required
-              </p>
-              
-              <label htmlFor="email" className="details__label">
-                Email
-              </label>
-              <input
-                type="text"
-                className="details__input"
-                placeholder="Email"
-                id="email"
-                name="email"
-                onChange={this.handleChange}
-              />
-              <p className="details__err">
-                <img className="details__err--img" src={error} alt="error" />{" "}
-                This field is required
-              </p>
-            </div>
-          </div> */}
-
         </form>
 
         <div className="buttons">
@@ -901,7 +883,7 @@ handleChange = (event) => {
             type="submit"
             form="vehicle-form"
             className="save-btn"
-            id ="add-vehicle"
+            id="add-vehicle"
           >
             +Add Vehicle
           </button>
@@ -912,3 +894,26 @@ handleChange = (event) => {
 }
 
 export default AddVehicle
+
+
+        /* <form encType='multiport/form-data'>
+            
+
+            <label htmlFor="imageUpload" className="details__label">
+                Upload image
+            </label>
+            <input
+                type="file"
+                className="details__input"
+                placeholder="Upload image"
+                id="imageUpload"
+                name="image"
+                
+
+            />
+            <input type="submit"  onChange={this.uploadHandler} />
+              {/* <p className="details__err">
+                <img className="details__err--img" src={error} alt="error" />{" "}
+                This field is required
+              </p> 
+        </form> */

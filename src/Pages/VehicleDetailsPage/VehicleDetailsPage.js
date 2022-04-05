@@ -71,7 +71,7 @@ class VehicleDetailsPage extends Component {
 
     return (
       <>
-        <div className="vehicle">VehicleDetailsPage</div>
+        <div className="vehicle"> Vehicle Details </div>
         {this.state.selectedVehicle &&
           <div className='vehicleIntro'>
             <div className='vehicleIntro__make vehicleIntro__feature'>
@@ -81,11 +81,11 @@ class VehicleDetailsPage extends Component {
             {this.state.selectedVehicle.model}
             </div>
             <div className='vehicleIntro__trim vehicleIntro__feature'>
-            {this.state.selectedVehicle.trim}
+             {this.state.selectedVehicle.trim} 
 
             </div>
             <div className='vehicleIntro__price vehicleIntro__feature'>
-            {this.state.selectedVehicle.basePrice}
+            $ {this.state.selectedVehicle.basePrice}(CAD) 
 
             </div>
 
