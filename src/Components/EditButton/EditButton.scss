@@ -23,5 +23,9 @@
     &:hover {
       background-color: blue;
     }
+
+    @include desktop {
+      font-size:1.5rem;
+    }
   }
 }

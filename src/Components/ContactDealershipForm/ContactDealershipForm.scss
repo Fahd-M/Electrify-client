@@ -2,13 +2,7 @@
 @use "../../styles/partials/fonts" as *;
 
 
-#save-vehicle {
-    @include tablet {
-      width: 138px;
-    }
-  }
-  
-  .details {
+.details {
     &__container {
       padding: 1rem 1.5rem;
       margin: 0;

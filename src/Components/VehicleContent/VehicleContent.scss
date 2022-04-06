@@ -6,7 +6,7 @@
     width:100%;
     @include flexed(column,center,center);
     @include tablet {
-        width:50%;
+        width:100%;
     }
 
     &__img {
@@ -22,6 +22,10 @@
         @include flexed(column,center,center);
         //border:1px solid grey;
         width:100%;
+        @include tablet{
+            @include flexed(row,center,center);
+            flex-wrap:wrap;
+        }
     }
 
     &__text {
@@ -33,6 +37,7 @@
         padding-bottom:0.5rem;
         @include tablet {
             width:50%;
+            font-size:2rem;
         }
     }
 
@@ -41,18 +46,29 @@
             font-weight:600;
             font-size:1.5rem;
             border: 1px solid black;
+            background-color: #5fc52c;
             padding-left:0.5rem;
             padding-right:0.25rem;
             padding-bottom:0.5rem;
+            @include tablet { 
+                font-size:2rem;
+
+            }
         }
 
         &--battery {
             border:1px solid black;
+            background-color: #5fc52c;
             font-size:1.5rem;
             align-self:flex-start;
             padding-left:0.5rem;
             padding-right:0.25rem;
             padding-bottom:0.5rem;
+            width:100%;            
+            @include tablet { 
+                font-size:2rem;
+
+            }
         }
 
         &--chargeTime {
@@ -61,6 +77,11 @@
             //padding-left:0.5rem;
             padding-right:0.25rem;
             padding-bottom:0.5rem;
+            width:100%;
+            @include tablet { 
+                font-size:2rem;
+
+            }
         }
     }
 
@@ -69,6 +90,10 @@
         padding-left:0.5rem;
         @include flexed(row,space-between,center);
         width:100%;
+        @include tablet { 
+            font-size:1rem;
+
+        }
     }
 
 
@@ -92,18 +117,23 @@
             align-self:flex-start;
             @include flexed(row, space-between, center);
             width:100%;
+            background-color: #5fc52c;
         }
     }
     &__specsThree {
-        color:green;
+        color: #367d12;
+        width:100%;
     }
 
 }
 
 .specsLabel {
-    text-decoration: underline;
+    // text-decoration: underline;
     font-weight:600;
     font-size:1rem;
     text-decoration-color:red;
     margin-right:1rem;
+    @include tablet {
+        font-size:1.25rem;
+    }
 }

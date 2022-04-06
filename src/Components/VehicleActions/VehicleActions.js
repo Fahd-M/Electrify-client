@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function VehicleActions() {
   return (
     <>
-    <div>VehicleActions</div>
+    
     <EditButton />
     <div className='prevPage'>
         <Link 

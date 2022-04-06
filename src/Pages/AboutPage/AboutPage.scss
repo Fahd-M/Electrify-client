@@ -13,6 +13,9 @@
         @include tablet{
             font-size:2rem;
         }
+        @include desktop {
+            font-size:2.5rem;
+        }
     }
 
     &__creator {
@@ -35,10 +38,22 @@
     &__heading{
         //border-top:#5fc52c solid 1px;
         margin-top:1rem;
+        @include tablet {
+            font-size:1.5rem;
+        }
+        @include desktop {
+            font-size:2rem;
+        }
     }
      &__types{
          &--label {
             color: #5fc52c;
+            @include tablet {
+                font-size:1.5rem;
+            }
+            @include desktop {
+                font-size:2rem;
+            }
          }
      }
 }
@@ -46,10 +61,22 @@
 .benefitsList {
     list-style-type: disc;
     padding-left:2.5rem;
+    @include tablet {
+        font-size:1.5rem;
+    }
+    @include desktop {
+        font-size:2rem;
+    }
 }
 
 .explainer {
     margin-bottom:0.5rem;
+    @include tablet {
+        font-size:1.5rem;
+    }
+    @include desktop {
+        font-size:2rem;
+    }
 }
 
 // .intro-future{}

@@ -14,7 +14,7 @@ function VehicleContent( { selectedVehicle }) {
             <ul className="vehicleContent__list vehicleContent__list--engine"> Engine:
               <li className="vehicleContent__listItem"> 1. {selectedVehicle.engine.engineSpec1} </li>
               <li className="vehicleContent__listItem"> 2. {selectedVehicle.engine.engineSpec2} </li>
-              <li className="vehicleContent__listItem"> 3. {selectedVehicle.engine.engineSpec3} </li>
+              <li className="vehicleContent__listItem">  {selectedVehicle.engine.engineSpec3} </li>
             </ul>
             <p className="vehicleContent__specsOne--text"> <span className="specsLabel"> Drivetrain:</span> {selectedVehicle.drivetrain} </p>
             <p className="vehicleContent__specsOne--text"> <span className="specsLabel"> Horsepower ( hp ):</span> {selectedVehicle.horsepower} </p>

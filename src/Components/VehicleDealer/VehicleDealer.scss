@@ -6,10 +6,12 @@
     width:100%;
     @include flexed(column,center, center);
     gap:1rem;
-
+    background-color: #5fc52c;
+    padding-bottom:1rem;
     &__img {
         width:100%;
-        border:1px solid red;
+        //border:1px solid black;
+        
         @include tablet {
             width:60%;
         }
@@ -21,15 +23,23 @@
 
     &__textArea {
         width: 100%;
-        border:1px solid green;
+        
+        
+        
         @include tablet {
             width:40%;
+        }
+
+        @include desktop {
+            width:100%;
+            font-size:2rem;
         }
     }
 
     &__list {
-        @include flexed(column,center, flex-start);
-
+        @include flexed(column,center, center);
+        color: white;
+        
     }
 }
 
@@ -38,6 +48,6 @@
     @include flexed(column,center, center);
     
     @include tablet {
-        width:50%;
+        width:100%;
     }
 }

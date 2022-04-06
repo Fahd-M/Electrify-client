@@ -3,7 +3,7 @@ import './VehicleIntro.scss';
 
 function VehicleIntro() {
   return (
-    <div>VehicleIntro</div>
+    <div className='vehicleIntro'>VehicleIntro</div>
   )
 }
 
