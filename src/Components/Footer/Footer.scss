@@ -12,6 +12,7 @@
       padding-top:0.5rem;
     //   padding: 1rem;
       @include flexed(column,flex-end,center);
+      
       border-top:grey 1px solid; 
       border-bottom:grey 1px solid; 
       display: flex;
@@ -47,37 +48,40 @@
   
     &__title {
         color: #5fc52c;
-        font-size:1rem;
+        font-size:1.5rem;
       
         padding-bottom: 0.5rem;
         margin: 0;
       
         @include tablet {
-            font-size:1rem;
+            font-size:2rem;
         }
     }
   
     &__social-wrapper {
         @include flexed(row,space-between,center);
+        gap:1rem;
     }
   
     &__image {
       padding: 0.5rem;
       width: auto;
-      height: 2rem;
+      height: 3rem;
+      box-shadow:0px 2px 4px #5fc52c;
+      border-radius:0.5rem;
       cursor: pointer;
 
     }
   
     &__content {
-      font-size:0.5rem;
+      font-size:1rem;
       margin: 0;
       padding-top: 0.5rem;
       color: #5fc52c;
       
   
       @include tablet {
-        font-size:1rem;
+        font-size:2rem;
       }
     }
   }

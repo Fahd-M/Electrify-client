@@ -15,13 +15,13 @@ function VehicleDealer(  { vehicleDealership }) {
         </div>
         <div className='vehicleDealer__textArea'>
           <ul className='vehicleDealer__list '>
-            <li>{vehicleDealership.make}</li>
-            <li>{vehicleDealership.address.street}</li>
-            <li>{vehicleDealership.address.city}</li>
-            <li>{vehicleDealership.address.province}</li>
-            <li>{vehicleDealership.address.postalCode}</li>
-            <li>{vehicleDealership.phone}</li>
-            <li>{vehicleDealership.email}</li> 
+            <li className='vehicleDealer__listItem'>{vehicleDealership.make}</li>
+            <li className='vehicleDealer__listItem'>{vehicleDealership.address.street}</li>
+            <li className='vehicleDealer__listItem'>{vehicleDealership.address.city}</li>
+            <li className='vehicleDealer__listItem'>{vehicleDealership.address.province}</li>
+            <li className='vehicleDealer__listItem'>{vehicleDealership.address.postalCode}</li>
+            <li className='vehicleDealer__listItem'>{vehicleDealership.phone}</li>
+            <li className='vehicleDealer__listItem'>{vehicleDealership.email}</li> 
           </ul>
         </div>
       </div>

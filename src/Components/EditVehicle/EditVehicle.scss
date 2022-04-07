@@ -1,40 +1,81 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-
 #save-vehicle {
+  @include tablet {
+    width: 138px;
+  }
+}
+
+.box-shadow {
+  border: solid 1px #5fc52c;
+  border-radius: 5px;
+  padding: 0.25rem 0.25rem 2rem 0.5rem;
+}
+
+.subheader {
+  &__text {
+    border-top: #5fc52c 1px solid;
+    border-bottom: #5fc52c solid 1px;
+    font-size: 2rem;
+    font-size: 600;
+    color: #5fc52c;
+    @include flexed(column, center, center);
+  }
+}
+
+.details {
+  &__container {
+    padding: 1rem 1.5rem;
+    margin: 0;
+    width: 100%;
     @include tablet {
-      width: 138px;
+      font-size: 1.5rem;
+      width: 100%;
+      @include flexed(column, center, center);
+    }
+    @include desktop {
+      font-size: 2rem;
     }
   }
-  
-  .details {
-    &__container {
-      padding: 1rem 1.5rem;
-      margin: 0;
-      @include tablet {
-        font-size:1.5rem;
-        width:100%;
-        @include flexed(column,center,center);
-      }
-      @include desktop {
-        font-size:2rem;
+  &__subheader {
+    padding-bottom: 0.5;
+  }
+  &__input {
+    margin-bottom: 0;
+    outline: none;
+    width: 100%;
+    @include tablet {
+      @include flexed(column, center, center);
+      width: 100%;
+      font-size: 1rem;
+    }
+    @include desktop {
+      font-size: 1.5rem;
+    }
+    &--error {
+      border: 1px solid purple;
+      &:focus {
+        border: 2px solid purple;
       }
     }
-    &__subheader {
-      padding-bottom: 0.5;
+  }
+  &__label {
+    padding-top: 1rem;
+    @include tablet {
+      padding-top: 0rem;
+    }
+  }
+  &__err {
+    display: none;
+    font-size: 0.75rem;
+    color: red;
+    &--img {
+      height: 13px;
     }
     &__input {
       margin-bottom: 0;
       outline: none;
-      @include tablet {
-        @include flexed(column,center,center);
-        width:100%;
-        font-size:1rem;
-      }
-      @include desktop{
-        font-size:1.5rem;
-      }
       &--error {
         border: 1px solid purple;
         &:focus {
@@ -44,9 +85,6 @@
     }
     &__label {
       padding-top: 1rem;
-      @include tablet {
-        padding-top:0rem;
-      }
     }
     &__err {
       display: none;
@@ -55,27 +93,16 @@
       &--img {
         height: 13px;
       }
-      &__input {
-          margin-bottom: 0;
-          outline: none;
-          &--error{
-              border: 1px solid purple;
-              &:focus{
-                  border: 2px solid purple;
-              }
-          }
-      }
-      &__label {
-          padding-top: 1rem;
-      }
-      &__err {
-          display: none;
-          font-size: .75rem;
-          color: red;
-          &--img {
-              height: 13px;
-          }
-      }
+    }
   }
+  #buttons {
+    width:100%;
+    @include flexed(column, center,center);
+    gap:1rem;
+    @include tablet {
+      width:100%;
+      @include flexed(row, space-around,center);
   
+    }
   }
+}

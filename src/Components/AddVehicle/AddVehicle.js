@@ -16,7 +16,7 @@ class AddVehicle extends Component {
     file: null,
 
     id: "",
-    //dealerId: "",
+    
     make: "",
     model: "",
     trim: "",
@@ -131,16 +131,12 @@ class AddVehicle extends Component {
     let electricWarrantyBatteryvalidation =
       this.state.electricWarrantyBatteryvalid;
 
-    // let namevalidation = this.state.namevalid;
-    // let addressvalidation = this.state.addressvalid;
-    // let phonevalidation = this.state.phonevalid;
-    // let emailvalidation = this.state.emailvalid;
 
     const re = /^[a-zA-Z0-9]/;
     const emailRe =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const addRe = /[A-za-z0–9_]/;
-    const phoneRe = /^[0-9]{10}$/;
+    //const number5 = /^[0-9]$/;
 
     switch (field.name) {
       case "make":
@@ -231,24 +227,6 @@ class AddVehicle extends Component {
         electricWarrantyBatteryvalidation = re.test(value);
         this.showInputError(field, electricWarrantyBatteryvalidation);
         break;
-      // case "name":
-      //   namevalidation = re.test(value);
-      //   this.showInputError(field, namevalidation);
-      //   break;
-      // case "address":
-      //   addressvalidation = re.test(value);
-      //   this.showInputError(field, addressvalidation);
-      //   break;
-      // case "phone":
-      //   const phonetrim = value.replace(/\D/g, "");
-      //   phonevalidation = phoneRe.test(phonetrim);
-      //   this.showInputError(field, phonevalidation);
-
-      //   break;
-      // case "email":
-      //   emailvalidation = emailRe.test(value);
-      //   this.showInputError(field, emailvalidation);
-      //   break;
 
       default:
         break;
@@ -280,10 +258,7 @@ class AddVehicle extends Component {
         seatsvalid: seatsvalidation,
         electricWarrantyComponentsvalid: electricWarrantyComponentsvalidation,
         electricWarrantyBatteryvalid: electricWarrantyBatteryvalidation,
-        // namevalid: namevalidation,
-        // addressvalid: addressvalidation,
-        // phonevalid: phonevalidation,
-        // emailvalid: emailvalidation,
+
       },
       this.validateForm
     );
@@ -339,8 +314,7 @@ class AddVehicle extends Component {
   handleSubmit = (e) => {
     console.log("clicked!");
     e.preventDefault();
-    console.log(e.target.dealership.value);
-    // this.uploadHandler();
+    
     this.setState({
       submit: true,
     });
@@ -399,19 +373,6 @@ class AddVehicle extends Component {
         .catch((err) => {
           console.log(err);
         });
-      // const addVehicle = axios.post(
-      //   `${process.env.REACT_APP_API_URL}/vehicles`,
-      //   newVehicle
-      // );
-      // addVehicle
-      //   .then((res) => {
-      //     window.alert(res.data);
-      //     this.props.history.push("/vehicles")
-      //   })
-      //   .catch((err) => {
-      //     window.alert(err);
-      //   });
-      //it will check every field and validate it
     } else {
       const inputlist = e.target.querySelectorAll("input");
       inputlist.forEach((field) => {
@@ -421,8 +382,6 @@ class AddVehicle extends Component {
   };
 
   handleFileChange = (event) => {
-    // update the state
-    //console.log(event.target.files);
     this.setState(
       {
         file: event.target.files[0],
@@ -433,33 +392,6 @@ class AddVehicle extends Component {
     );
   };
 
-  // uploadHandler =  () =>  {
-  //   //create an object of formdata
-  //   let data = new FormData();
-
-  //   //update the formdata object
-  //   data.append('file', this.state.file, this.state.file.name);
-  //   data.append('uploadedFile', 'someString');
-  //   console.dir(data);
-
-  //   //details of the uploaded file
-  //    console.log(this.state.file);
-
-  //   axios.post('http://localhost:8089/vehicles', data, {
-  //     headers: {
-  //       'accept': 'application/json',
-  //       'Accept-Language': 'en-US,en;q=0.8',
-  //       'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-  //     }})
-  //     .then((res) => {
-  //       console.log(data);
-
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
 
   render() {
     return (
@@ -527,7 +459,7 @@ class AddVehicle extends Component {
               </p>
 
               <label htmlFor="basePrice" className="details__label">
-                Base Price
+                Base Price(CAD)
               </label>
               <input
                 type="text"
@@ -655,7 +587,7 @@ class AddVehicle extends Component {
               </p>
 
               <label htmlFor="batteryCapacity" className="details__label">
-                Battery Capacity
+                Battery Capacity(kwH energy)
               </label>
               <input
                 type="text"
@@ -687,7 +619,7 @@ class AddVehicle extends Component {
               </p>
 
               <label htmlFor="chargeTimeL1" className="details__label">
-                Charge Time at Level 1 120V
+                Charge Time at Level 1 120V(hours)
               </label>
               <input
                 type="text"
@@ -703,7 +635,7 @@ class AddVehicle extends Component {
               </p>
 
               <label htmlFor="chargeTimeL2" className="details__label">
-                Charge Time at Level 2 240V
+                Charge Time at Level 2 240V(hours)
               </label>
               <input
                 type="text"
@@ -719,7 +651,7 @@ class AddVehicle extends Component {
               </p>
 
               <label htmlFor="chargeTimeL3" className="details__label">
-                Charge Time at Level 3 400-Volt to 900-Volt
+                Charge Time at Level 3 400-Volt to 900-Volt(hours)
               </label>
               <input
                 type="text"
@@ -735,7 +667,7 @@ class AddVehicle extends Component {
               </p>
 
               <label htmlFor="range" className="details__label">
-                Driving Range
+                Driving Range(KM)(fuel/EV/Combined)
               </label>
               <input
                 type="text"
@@ -751,7 +683,7 @@ class AddVehicle extends Component {
               </p>
 
               <label htmlFor="efficiency" className="details__label">
-                Driving Efficiency
+                Driving Efficiency(city/highway/combined/electric combined)
               </label>
               <input
                 type="text"
@@ -841,13 +773,13 @@ class AddVehicle extends Component {
               </label>
               <input
                 type="file"
-                className="details__input"
+                className="details__input details__input--upload"
                 placeholder="Upload image"
                 accept=".jpg"
                 id="imageUpload"
                 name="file"
                 onChange={this.handleFileChange}
-                //onClick={uploadHandler}
+                
               />
 
               <label htmlFor="dealership" className="details__label">
@@ -875,7 +807,7 @@ class AddVehicle extends Component {
           </div>
         </form>
 
-        <div className="buttons">
+        <div id="buttons">
           <Link to="/vehicles" className="cancel-btn">
             Cancel
           </Link>
@@ -895,25 +827,3 @@ class AddVehicle extends Component {
 
 export default AddVehicle
 
-
-        /* <form encType='multiport/form-data'>
-            
-
-            <label htmlFor="imageUpload" className="details__label">
-                Upload image
-            </label>
-            <input
-                type="file"
-                className="details__input"
-                placeholder="Upload image"
-                id="imageUpload"
-                name="image"
-                
-
-            />
-            <input type="submit"  onChange={this.uploadHandler} />
-              {/* <p className="details__err">
-                <img className="details__err--img" src={error} alt="error" />{" "}
-                This field is required
-              </p> 
-        </form> */

@@ -17,7 +17,7 @@ const Header = () => {
             <div className="nav__list">
               <NavLink 
                 to="/"
-                className="nav__link"
+                className="nav__link nav__link--home"
                 activeClassName="nav__link--highlight"
               >
                 Home 

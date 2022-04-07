@@ -10,7 +10,7 @@ export default function HeroSection() {
           <div className="hero__content--info">
             <h1 className="hero__title"> Electrify your Future</h1>
             <p className="hero__slogan">Learn more before you spend more!</p>
-            <Link className="hero__button" to="/login"> Log in </Link>
+            <Link className="hero__button" to="/login"> Login </Link>
           </div>
         </div>
       </div>

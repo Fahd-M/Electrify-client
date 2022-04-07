@@ -1,0 +1,98 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.login {
+    border: solid 1px #5fc52c;
+    border-radius: 5px;
+    padding: 0.25rem 0.25rem 2rem 0.5rem;
+
+    &__title {
+        border-top: #5fc52c 1px solid;
+        border-bottom: #5fc52c solid 1px;
+        font-size: 2rem;
+        font-size: 600;
+        color: #5fc52c;
+        @include flexed(column, center, center);
+    }
+}
+
+.loginForm {
+    @include flexed(column,center,center);
+    gap:1rem;
+    margin-top:1rem;
+
+    &__title {
+        border-top: #5fc52c 1px solid;
+        border-bottom: #5fc52c solid 1px;
+        font-size: 1.5rem;
+        font-size: 600;
+        color: #5fc52c;
+        @include flexed(column, center, center);
+    }
+
+    &__label {
+        color:#5fc52c;
+        font-size:1.25rem;
+        margin-top:1.5rem;
+        &--password {
+            margin-top:1rem;
+        }
+    }
+
+
+    &__input {
+        margin-bottom: 0;
+        outline: none;
+        height:2rem;
+        width:100%;
+        box-shadow:0 2px 4px black;
+        &:active {
+            background-color:#5fc52c;
+            color:black;
+            
+        }
+        &:focus{
+            background-color:#5fc52c;
+            color:black;
+            border:#5fc52c 1px solid;
+            
+        }
+        @include tablet {
+          @include flexed(column, center, center);
+          width: 100%;
+          font-size: 1rem;
+        }
+        @include desktop {
+          font-size: 1.5rem;
+        }
+    }
+
+    &__button {
+        background-color:#5fc52c;
+        font-size:1.5rem;
+        font-weight:500;
+        color:white;
+        border:#5fc52c 1px solid;
+        border-radius:1rem;
+        padding:0.5rem;
+        cursor:pointer;
+        box-shadow:0 9px 9px black;
+        &:hover {
+            background-color:darkgrey;
+            color:#5fc52c;
+            font-size:2rem;
+            font-weight:600;
+            box-shadow:0 6px 9px black;
+        }
+        &:active {
+            background-color:darkgrey;
+            color:#5fc52c;
+            box-shadow: 0 5px white; 
+            font-size:2rem;
+            transform:translateY(4px);
+            transform:translateX(3px);
+            font-weight:600;
+            box-shadow:0 6px 9px black;
+        }
+    }
+}

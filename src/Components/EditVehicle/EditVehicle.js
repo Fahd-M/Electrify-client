@@ -457,7 +457,7 @@ class EditVehicle extends Component {
               </p>
 
               <label htmlFor="basePrice" className="details__label">
-                Base Price
+                Base Price(CAD)
               </label>
               <input
                 type="text"
@@ -594,7 +594,7 @@ class EditVehicle extends Component {
               </p>              
 
               <label htmlFor="batteryCapacity" className="details__label">
-                Battery Capacity
+                Battery Capacity(kwH energy)
               </label>
               <input
                 type="text"
@@ -630,7 +630,7 @@ class EditVehicle extends Component {
 
 
               <label htmlFor="chargeTimeL1" className="details__label">
-                Charge Time at Level 1 120V
+                Charge Time at Level 1 120V(hours)
               </label>
               <input
                 type="text"
@@ -647,7 +647,7 @@ class EditVehicle extends Component {
               </p>
 
               <label htmlFor="chargeTimeL2" className="details__label">
-                Charge Time at Level 2 240V
+                Charge Time at Level 2 240V(hours)
               </label>
               <input
                 type="text"
@@ -665,7 +665,7 @@ class EditVehicle extends Component {
 
 
               <label htmlFor="chargeTimeL3" className="details__label">
-                Charge Time at Level 3 400-Volt to 900-Volt
+                Charge Time at Level 3 400-Volt to 900-Volt(hours)
               </label>
               <input
                 type="text"
@@ -682,7 +682,7 @@ class EditVehicle extends Component {
               </p>
 
               <label htmlFor="range" className="details__label">
-                Driving Range
+                Driving Range(KM)(fuel/EV/Combined)
               </label>
               <input
                 type="text"
@@ -701,7 +701,7 @@ class EditVehicle extends Component {
 
 
               <label htmlFor="efficiency" className="details__label">
-                Driving Efficiency
+                Driving Efficiency(city/highway/combined/electric combined)
               </label>
               <input
                 type="text"
@@ -819,7 +819,7 @@ class EditVehicle extends Component {
 
         </form>
 
-        <div className="buttons">
+        <div id="buttons">
           <Link to="/vehicles" className="cancel-btn">
             Cancel
           </Link>

@@ -29,7 +29,7 @@ function App() {
                 <Route path="/vehicles/:id" component={VehicleDetailsPage} />
                 <Route path="/about" component={AboutPage} />
                 <Route path="/login" component={Login} />
-                <Route path="/contactdealership" component={ContactDealershipForm} />
+                <Route path="/contactdealership" exact component={ContactDealershipForm} />
                 {/* <Route path="/login" component={LoginPage} /> */}
                 
                 

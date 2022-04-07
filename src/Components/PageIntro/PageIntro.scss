@@ -19,6 +19,13 @@
         font-size:1.75rem;
         font-weight: 600;
         align-self:center;
+        border-top:#5fc52c 1px solid;
+        border-bottom:#5fc52c solid 1px;
+        width:100%;
+        @include tablet {
+            @include flexed(column,center,center);
+            font-size:2rem;
+        }
         @include desktop{
             font-size: 4rem;
         }
@@ -27,14 +34,18 @@
     &__text {
         font-size:1rem;
         font-weight:500;
+        @include tablet {
+            font-size:1.5rem; 
+        }
         @include desktop {
-            font-size:1.5rem;
+            font-size:2rem;
         }
 
         &--link {
             color:red;
             font-weight: 600;
             margin-left:5px;
+            cursor: pointer;
         }
     }
 
