@@ -10,7 +10,7 @@ class EditVehicle extends Component {
     dealerships:[],//create empty dealership array 
 
     id: "",
-    dealerId: "",
+    
     make: "",
     model: "",
     trim: "",
@@ -36,30 +36,30 @@ class EditVehicle extends Component {
     electricWarrantyBattery:"",
 
 
-    makevalid: false,
-    modelvalid: false,
-    trimvalid: false,
-    basePricevalid: false,
-    powertrainvalid: false,
-    engineSpec1valid: false,
-    engineSpec2valid: false,
-    engineSpec3valid: false,
-    drivetrainvalid: false,
-    horsepowervalid: false,
-    batteryTypevalid: false,
-    batteryCapacityvalid: false,
-    chargeTimeMechvalid: false,
-    chargeTimeL1valid: false,
-    chargeTimeL2valid: false,
-    chargeTimeL3valid: false,
-    rangevalid: false,
-    efficiencyvalid: false,
-    airbagsvalid: false,
-    seatsvalid: false,
-    electricWarrantyComponentsvalid: false,
-    electricWarrantyBatteryvalid: false,
+    makevalid: true,
+    modelvalid: true,
+    trimvalid: true,
+    basePricevalid: true,
+    powertrainvalid: true,
+    engineSpec1valid: true,
+    engineSpec2valid: true,
+    engineSpec3valid: true,
+    drivetrainvalid: true,
+    horsepowervalid: true,
+    batteryTypevalid: true,
+    batteryCapacityvalid: true,
+    chargeTimeMechvalid: true,
+    chargeTimeL1valid: true,
+    chargeTimeL2valid: true,
+    chargeTimeL3valid: true,
+    rangevalid: true,
+    efficiencyvalid: true,
+    airbagsvalid: true,
+    seatsvalid: true,
+    electricWarrantyComponentsvalid: true,
+    electricWarrantyBatteryvalid: true,
 
-    formvalid: false
+    formvalid: true
 
   };
 
@@ -148,6 +148,9 @@ class EditVehicle extends Component {
         .catch((error) => {
           window.alert(error);
         });
+    }
+    else {
+      console.log("issue");
     }
   };  
 
@@ -323,6 +326,7 @@ class EditVehicle extends Component {
   }
     //checks if the form is valid after every changed in the field and updates the status
     validateForm() {
+      
       this.setState({
         formvalid: this.state.makevalid &&
         this.state.modelvalid &&

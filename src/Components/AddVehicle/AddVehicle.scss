@@ -1,11 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-#add-vehicle {
-  @include tablet {
-    width: 138px;
-  }
-}
+
 
 .box-shadow {
   border:solid 1px #5fc52c;
