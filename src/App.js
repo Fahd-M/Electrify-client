@@ -10,7 +10,7 @@ import AddVehicle from './Components/AddVehicle/AddVehicle';
 import Login from './Components/Login/Login';
 import EditVehicle from './Components/EditVehicle/EditVehicle';
 import ContactDealershipForm from './Components/ContactDealershipForm/ContactDealershipForm';
-// import LoginPage from './Pages/LoginPage/LoginPage';
+
 
 
 function App() {
@@ -30,14 +30,6 @@ function App() {
                 <Route path="/about" component={AboutPage} />
                 <Route path="/login" component={Login} />
                 <Route path="/contactdealership" exact component={ContactDealershipForm} />
-                {/* <Route path="/login" component={LoginPage} /> */}
-                
-                
-                
-                
-                {/* <Route path="/vehicleDetails" exact component={VehicleDetails} /> */}
-
-                
               </Switch>
 
             <Footer />
